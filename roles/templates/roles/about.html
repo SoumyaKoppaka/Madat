@@ -1,7 +1,6 @@
 {% load staticfiles %}
-
-{% block content %}
-<head>
+<html lang="en">
+  <head>
     <title>Boond</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,7 +18,8 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
-<header role="banner">
+
+    <header role="banner">
       <div class="top-bar">
         <div class="container">
           <div class="row">
@@ -46,7 +46,7 @@
         <div class="row pt-5">
           <div class="col-12 text-center">
             <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-            <h1 class="site-logo"><a href="{% url 'home' %}">Boond</a></h1>
+            <h1 class="site-logo"><a href="index.html">Boond</a></h1>
           </div>
         </div>
       </div>
@@ -94,44 +94,69 @@
         </div>
       </nav>
     </header>
-<body>
-  <div class="row">
-    <div class="col-md-4 offset-md-4">
-        <br/><br/><br/>
-        <div class="box">
-        <h1 class="text-center">Sign up as<br>
-        {% if user_type == 1 %}
-            Donor
-        {% elif user_type == 2 %}
-             Recipient
-        {% elif user_type == 3  %}
-             Hospital
-        {% elif user_type == 4  %}
-             Blood bank
-        {% elif user_type == 5  %}
-             Local Body
-        {% endif %}
-        </h1>
-      <form class="form-signin text-center" method="post" novalidate>
-        {% csrf_token %}
-          {% for field in form %}
-              {% for error in field.errors %}
-                  <p class="text-danger">{{ error }}</p>
-                  <br>
-              {% endfor %}
-              {{ field.label_tag }}<br>
-              {{ field }}
-              <br>
-          {% endfor %}
-      <br>
-        <button type="submit" class="btn btn-success">Sign up</button>
-      </form>
-        </div>
-    </div>
-  </div>
-<div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+    <!-- END header -->
 
-    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<body>
+    <section class="site-section">
+      <div class="container">
+        
+        <div class="row blog-entries">
+          <div class="col-md-12 col-lg-12 main-content">
+            
+            <div class="row">
+              <div class="col-md-12">
+                <h2  class="text-center">Boond : Donate Blood Today!</h2>
+                <p class="text-center"><img src="{% static 'images/img_13.jpg' %}" alt="Image placeholder" class="img-fluid"></p>
+                <p>Boond is being developed with the idea of efficiently integrating all the components involved under the operation of Blood Donation. It aims to bring together various stakeholders, such as potential blood donors, patients wishing to receive blood, blood banks and their inventories, hospitals and government officials overseeing the entire process.
+Our platform will facilitate multiple user login and profile maintenance for these stakeholders.<br> A real time dynamic inventory of various blood groups will be accessible to everyone logged onto the system. Blood banks will be required to update their inventory periodically which will be reflected to the users.
+Patients wishing to receive blood can request for reservation of blood on the system.<br> The system will then contact potential donors through personalized notifications in case of emergency blood requirement. This matchmaking will be done through profile mapping of donors and recipients, considering compatibility of blood types. In case of emergencies, recipients or their kin can search for nearby blood banks based upon their location.
+<br>To increase participation of people in blood donation, the system will also provide information about blood donation camps and events. Camp/event organizers will upload data about these events, and notifications will be sent accordingly to all users. FAQ sections will be provided, for common queries by stakeholders.
+</p>
+              </div>
+            </div>
+          </div>
+
+
+            <!-- END sidebar-box -->
+          <div class="sidebar-box">
+              <h3 class="heading">Tags</h3>
+              <ul class="tags">
+                 <li><a href="#">Blood</a></li>
+                <li><a href="#">Donation</a></li>
+                <li><a href="#">Awareness</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Hospitals</a></li>
+                <li><a href="#">BloodBanks</a></li>
+                <li><a href="#">SaveLives</a></li>
+                <li><a href="#">Donor</a></li>
+                <li><a href="#">Recipient</a></li>
+                <li><a href="#">GovernmentBodies</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+          <!-- END sidebar -->
+
+        </div>
+    </section>
+              <div class="col-md-1"></div>
+
+              <div class="col-md-4">
+
+
+
+
+              </div>
+
+
+
+    <!-- END footer -->
+    
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+   <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -141,6 +166,5 @@
 
 
     <script src="{% static 'js/main.js' %}"></script>
-
 </body>
-{% endblock %}
+</html>

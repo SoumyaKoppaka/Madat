@@ -9,6 +9,7 @@ urlpatterns = [
 
     path('donor/', include(([
                                 path('', donors.DonorHomeView.as_view(), name='donor_home'),
+                                path('donate_blood', donors.donate_blood, name='donate_blood'),
                             ], 'roles'), namespace='donor')),
 
     path('recipient/', include(([
@@ -26,8 +27,9 @@ urlpatterns = [
 
                                    url(r'^search/(?P<slug>[^\/]+)$', hospitals.block_blood,
                                        name='hospital_block_blood'),
-                                    url(r'^sendEmailRequest/(?P<slug>[^\/]+)$', hospitals.send_email_request,
+                                    url(r'^sendEmailRequest/$', hospitals.send_email_request,
                                        name='hospital_send_email_request'),
+
 
                                ], 'roles'), namespace='hospital')),
 

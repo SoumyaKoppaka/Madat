@@ -1,79 +1,144 @@
-
+{% load static %}
 {% load staticfiles %}
 
 
-{% block body %}
+{% block content %}
 
-<h2 style="color:blue">Searched for: "{{ search_query }}"</h2>
-<h2 >Results:</h2>
-    <!--<ul>
-    {% for product in results %}
-            <li>
-                <div class="col-sm-6 col-md-4">
+<head>
+    <title>Boond</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                <div class="thumbnail">
-                    <!--<img class="img-responsive" src="{% static '/images/bloodbank.jpg' %}"
-                         alt="...">-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
 
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Blood Group</th>
-      <th scope="col">Amount(ml)</th>
-      <th scope="col">Anomaly</th>
-        <th scope="col">Blood Bank</th>
-              <th scope="col">Report</th>
+    <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
 
-
-
-    </tr>
-  </thead>
-  <tbody>
-  {% for product in results %}
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ product.blood_type }}</td>
-      <td>{{ product.quantity }}</td>
-      <td>{{ product.anomaly }}</td>
-        <td>{{ product.blood_bank.name }}</td>
-        <td>{{ product.reports }}</td>
-        <td><a href="{% url 'hospital:hospital_block_blood' product.slug %}" class="btn btn-primary" role="button">Block</a> </td>
-    </tr>
-
-      </tbody>
-    {% endfor %}
-</table>
-
-        <p><a href="{% url 'hospital:hospital_send_email_request' product.blood_type %}" class="btn btn-primary" role="button">Send email request</a> </p>
-
-
-
-                    <!--<div class="caption">
-                        <h3>
-                            <a href="{{ product.get_absolute_url }}">{{ product.blood_type }}</a>
-
-                        </h3>
-
-                        <p>Quantity: {{ product.quantity }}</p>
-                        <p>Anomaly: {{ product.anomaly }}</p>
-                        <p>Blood Bank: {{ product.blood_bank.name }}</p>
-                        <p>Reports: {{ product.reports }}</p>
-                        <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-success">Reserve</button>
-                            </div>
-
-
-
-
-
-                    </div>-->
-                <!--</div>
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+<header role="banner">
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 social">
+              <a href="#"><span class="fa fa-twitter"></span></a>
+              <a href="#"><span class="fa fa-facebook"></span></a>
+              <a href="#"><span class="fa fa-instagram"></span></a>
+              <a href="#"><span class="fa fa-youtube-play"></span></a>
+              <a href="#"><span class="fa fa-vimeo"></span></a>
+              <a href="#"><span class="fa fa-snapchat"></span></a>
             </div>
-            </li>-->
-    {% endfor %}
-    <!--</ul>
-    </header>-->
+            <div class="col-3 search-top">
+              <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+              <form action="#" class="search-top-form">
+                <span class="icon fa fa-search"></span>
+                <input type="text" id="s1" placeholder="Type keyword to search...">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="container logo-wrap">
+        <div class="row pt-5">
+          <div class="col-12 text-center">
+            <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+            <h1 class="site-logo"><a href="{% url 'home' %}">Boond</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-expand-md  navbar-light bg-light">
+        <div class="container">
+
+
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="{% url 'signup' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="{% url 'donor_signup' %}">Donor</a>
+                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Recipient</a>
+                  <a class="dropdown-item" href="{% url 'blood_bank_signup' %}">Blood Bank</a>
+                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Hospital</a>
+                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">Local Body</a>
+                </div>
+
+              </li>
+
+
+
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log in</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_events' %}">View Events</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+{% for product in results %}
+
+<div class="col-sm-8 col-lg-3">
+            <a href="{% url 'hospital:hospital_block_blood' product.slug %}" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_14.JPEG'); ">
+              <div class="text">
+                <div class="post-meta">
+                  <span class="category">Status:  Available </span>
+                </div>
+                <h3>{{ product.blood_type}}</h3>
+                  <p>Quantity Available:{{ product.quantity }} </p>
+                  <p>Anomaly:{{ product.anomaly}}</p>
+              </div>
+            </a>
+
+          </div>
+{% endfor %}
+
+<div style="text-align:center">
+<button class="btn btn" type="submit"><a href="{% url 'hospital:hospital_send_email_request' %}" >Send email request</a></button>
+</div>
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

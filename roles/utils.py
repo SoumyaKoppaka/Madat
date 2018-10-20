@@ -26,6 +26,20 @@ def send_confirmation_recipient_message(user_email):
     )
 
 
+def send_request_donor_message():
+    recipients = []
+    for user in User.objects.all():
+        if user.user_type == 1:
+            recipients.append(user.email)
+
+    send_mail(
+        subject='Blood Donation Request',
+        message='Please donate blood.',
+        from_email=settings.EMAIL_HOST_USER,
+        recipient_list=recipients,
+    )
+
+
 def send_update_reminder():
     recipients = []
     for user in User.objects.all():

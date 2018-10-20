@@ -18,7 +18,7 @@
                         {% csrf_token %}
                         {% include 'roles/local_bodies/form_template.html' %}
                         <br>
-                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button class="btn btn-success" type="submit"><a href="{% url 'view_events' %}" >Submit</a></button>
                     </form>
                 </div>
             </div>

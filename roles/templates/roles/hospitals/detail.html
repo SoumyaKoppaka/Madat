@@ -1,11 +1,11 @@
-
+{% extends 'base.html'%}
 {% load staticfiles %}
 
 
-{% block body %}
+{% block content %}
 
 
-<h2 >Blood has been reserved successfully!</h2>
+    <h1 class="text-center">Blood has been reserved successfully!</h1>
     <!--<ul>
     {% for product in results %}
             <li>
@@ -16,33 +16,7 @@
                          alt="...">-->
 
 
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Blood Group</th>
-      <th scope="col">Amount(ml)</th>
-      <th scope="col">Anomaly</th>
-        <th scope="col">Blood Bank</th>
-              <th scope="col">Report</th>
 
-
-
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-      <th scope="row">1</th>
-      <td>{{ product.blood_type }}</td>
-      <td>{{ product.quantity }}</td>
-      <td>{{ product.anomaly }}</td>
-        <td>{{ product.blood_bank.name }}</td>
-        <td>{{ product.reports }}</td>
-    </tr>
-
-      </tbody>
-</table>
 
 
                     <!--<div class="caption">
