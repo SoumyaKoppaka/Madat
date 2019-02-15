@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-
-
 {% block content %}
 
 <br><br>
@@ -9,11 +7,8 @@
 <div class="card" style="width: 600px;">
     <div class="card-header" style="font-weight: bold; font-size: 20px">What type of user are you?</div>
     <div class="card-body">
-        <a class="btn btn-primary" href="{% url 'donor_signup' %}">Donor</a>
-        <a class="btn btn-success" href="{% url 'recipient_signup' %}">Recipient</a>
-        <a class="btn btn-info" href="{% url 'hospital_signup' %}">Hospital</a>
-        <a class="btn btn-warning" href="{% url 'blood_bank_signup' %}">Blood Bank</a>
-            <a class="btn btn-danger" href="{% url 'local_bodies_signup' %}">Local Body</a>
+        <a class="btn btn-success" href="{% url 'recipient_signup' %}">User</a>
+        <a class="btn btn-danger" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
     </div>
 </div>
 {% endblock %}

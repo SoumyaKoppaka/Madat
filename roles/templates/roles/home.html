@@ -4,14 +4,8 @@
 {% block content %}
 
     <h1>Welcome to our site
-        {% if user.user_type == 1 %}
-            {{ user.donor.first_name }}
-        {% elif user.user_type == 2 %}
+        {% if user.user_type == 2 %}
             {{ user.recipient.first_name }}
-        {% elif user.user_type == 3 %}
-            {{ user.blood_bank.name }}
-        {% elif user.user_type == 4 %}
-            {{ user.hospital.name }}
         {% elif user.user_type == 5 %}
             {{ user.localBody.name }}
         {% endif %}

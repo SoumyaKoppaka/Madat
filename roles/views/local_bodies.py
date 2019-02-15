@@ -7,7 +7,6 @@ from django.views import generic
 from ..decorators import local_body_required
 from ..forms import LocalBodySignUpForm, EventForm
 from ..models import User, BloodDonationEvent
-from ..utils import send_event_message
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
@@ -48,7 +47,6 @@ def upload_event(request):
             event = form.save(commit=False)
             event.user = request.user
             event.save()
-            send_event_message()
             return render(request, 'roles/local_bodies/local_bodies_home.html', {'event': event})
         context = {
             "form": form,

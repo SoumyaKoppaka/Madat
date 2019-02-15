@@ -1,0 +1,225 @@
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <title>Madat</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <!-- Theme Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+
+    <header role="banner">
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-9 social">
+              <a href="#"><span class="fa fa-twitter"></span></a>
+              <a href="#"><span class="fa fa-facebook"></span></a>
+              <a href="#"><span class="fa fa-instagram"></span></a>
+              <a href="#"><span class="fa fa-youtube-play"></span></a>
+              <a href="#"><span class="fa fa-vimeo"></span></a>
+              <a href="#"><span class="fa fa-snapchat"></span></a>
+            </div>
+            <div class="col-3 search-top">
+              <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+              <form action="#" class="search-top-form">
+                <span class="icon fa fa-search"></span>
+                <input type="text" id="s1" placeholder="Type keyword to search...">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container logo-wrap">
+        <div class="row pt-5">
+          <div class="col-12 text-center">
+            <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+            <h1 class="site-logo"><a href="index.html">Madat</a></h1>
+          </div>
+        </div>
+      </div>
+
+      <nav class="navbar navbar-expand-md  navbar-light bg-light">
+        <div class="container">
+
+
+          <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
+                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
+                </div>
+
+              </li>
+
+
+
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Log in</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_events' %}">View Schemes</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <section class="site-section">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-md-6">
+            <h1>Contact</h1>
+          </div>
+        </div>
+        <div class="row blog-entries">
+          <div class="col-md-12 col-lg-8 main-content">
+            
+            <form action="#" method="post">
+                  <div class="row">
+                    <div class="col-md-4 form-group">
+                      <label for="name">Name</label>
+                      <input type="text" id="name" class="form-control ">
+                    </div>
+					<br>
+                    <div class="col-md-4 form-group">
+                      <label for="phone">Phone</label>
+                      <input type="text" id="phone" class="form-control ">
+                    </div>
+					<br>
+                    <div class="col-md-4 form-group">
+                      <label for="email">Email</label>
+                      <input type="email" id="email" class="form-control ">
+                    </div>
+					<br>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 form-group">
+                      <label for="message">Write Message</label>
+                      <textarea name="message" id="message" class="form-control " cols="30" rows="8"></textarea>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 form-group">
+                      <input type="submit" value="Contact Now" class="btn btn-primary">
+                    </div>
+                  </div>
+                </form>
+            
+
+          </div>
+
+          <!-- END main-content -->
+
+          <div class="col-md-12 col-lg-4 sidebar">
+            <div class="sidebar-box search-form-wrap">
+
+            </div>
+            <!-- END sidebar-box -->
+            <div class="sidebar-box">
+              <div class="bio text-center">
+                <img src="{% static 'images/person_1.jpg' %}" alt="Image Placeholder" class="img-fluid">
+                <div class="bio-body">
+                  <h2>Team Madat</h2>
+                  <p>Why is blood donation important?
+Every year our country requires 5 crore units of blood, from which
+only 2.5 crore unit of blood is available. This indicates that the
+right type of blood must be available at right time. So, to save a life of
+people, we must encourage people to donate maximum amount of
+blood to improve the situation.
+ 
+” The gift of blood is a gift of life.”</p>
+                  <p><a href="{% url 'home' %}" class="btn btn-primary btn-sm">Visit Us!</a></p>
+                  <p class="social">
+                    <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-instagram"></span></a>
+                    <a href="#" class="p-2"><span class="fa fa-youtube-play"></span></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- END sidebar-box -->  
+
+            </div>
+            <!-- END sidebar-box -->
+
+            <div class="sidebar-box">
+              <h3 class="heading">Tags</h3>
+              <ul class="tags">
+                <li><a href="#">Blood</a></li>
+                <li><a href="#">Donation</a></li>
+                <li><a href="#">Awareness</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Hospitals</a></li>
+                <li><a href="#">BloodBanks</a></li>
+                <li><a href="#">SaveLives</a></li>
+                <li><a href="#">Donor</a></li>
+                <li><a href="#">Recipient</a></li>
+                <li><a href="#">GovernmentBodies</a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- END sidebar -->
+
+        </div>
+      </div>
+    </section>
+
+              <div class="col-md-1"></div>
+              
+              <div class="col-md-4">
+
+
+                
+
+              </div>
+
+
+
+    <!-- END footer -->
+    
+    <!-- loader -->
+    <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
+
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

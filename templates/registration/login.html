@@ -2,7 +2,7 @@
 
 {% block content %}
 <head>
-    <title>Boond</title>
+    <title>Madat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,7 +46,7 @@
         <div class="row pt-5">
           <div class="col-12 text-center">
             <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-            <h1 class="site-logo"><a href="{% url 'home' %}">Boond</a></h1>
+            <h1 class="site-logo"><a href="{% url 'home' %}">Madat</a></h1>
           </div>
         </div>
       </div>
@@ -63,11 +63,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="{% url 'donor_signup' %}">Donor</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Recipient</a>
-                  <a class="dropdown-item" href="{% url 'blood_bank_signup' %}">Blood Bank</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Hospital</a>
-                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">Local Body</a>
+                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
+                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
                 </div>
 
               </li>
@@ -79,7 +76,7 @@
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'view_events' %}">View Events</a>
+                <a class="nav-link" href="{% url 'view_events' %}">View Schemes</a>
               </li>
 
               <li class="nav-item">

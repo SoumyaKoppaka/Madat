@@ -1,8 +1,8 @@
+{% load static %}
 {% load staticfiles %}
 
-<html lang="en">
-  <head>
-    <title>Boond</title>
+<head>
+    <title>Madat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,175 +18,171 @@
 
     <!-- Theme Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
+</head>
 
 
 
-    <header role="banner">
-      <div class="top-bar">
+<header role="banner">
+    <div class="top-bar">
         <div class="container">
-          <div class="row">
-            <div class="col-9 social">
-              <a href="#"><span class="fa fa-twitter"></span></a>
-              <a href="#"><span class="fa fa-facebook"></span></a>
-              <a href="#"><span class="fa fa-instagram"></span></a>
-              <a href="#"><span class="fa fa-youtube-play"></span></a>
-              <a href="#"><span class="fa fa-vimeo"></span></a>
-              <a href="#"><span class="fa fa-snapchat"></span></a>
+            <div class="row">
+                <div class="col-9 social">
+                    <a href="#"><span class="fa fa-twitter"></span></a>
+                    <a href="#"><span class="fa fa-facebook"></span></a>
+                    <a href="#"><span class="fa fa-instagram"></span></a>
+                    <a href="#"><span class="fa fa-youtube-play"></span></a>
+                    <a href="#"><span class="fa fa-vimeo"></span></a>
+                    <a href="#"><span class="fa fa-snapchat"></span></a>
+                </div>
+                <div class="col-3 search-top">
+                    <!-- <a href="#"><span class="fa fa-search"></span></a> -->
+                    <form action="#" class="search-top-form">
+                        <span class="icon fa fa-search"></span>
+                        <input type="text" id="s1" placeholder="Type keyword to search...">
+                    </form>
+                </div>
             </div>
-            <div class="col-3 search-top">
-              <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-              <form action="#" class="search-top-form">
-                <span class="icon fa fa-search"></span>
-                <input type="text" id="s1" placeholder="Type keyword to search...">
-              </form>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
-      <div class="container logo-wrap">
+    <div class="container logo-wrap">
         <div class="row pt-5">
-          <div class="col-12 text-center">
-            <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-            <h1 class="site-logo"><a href="index.html">Boond</a></h1>
-          </div>
+            <div class="col-12 text-center">
+                <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
+                <h1 class="site-logo"><a href="index.html">Madat</a></h1>
+            </div>
         </div>
-      </div>
+    </div>
 
-      <nav class="navbar navbar-expand-md  navbar-light bg-light">
+    <nav class="navbar navbar-expand-md  navbar-light bg-light">
         <div class="container">
 
 
-          <div class="collapse navbar-collapse" id="navbarMenu">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="{% url 'home' %}">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="{% url 'donor_signup' %}">Donor</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Recipient</a>
-                  <a class="dropdown-item" href="{% url 'blood_bank_signup' %}">Blood Bank</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Hospital</a>
-                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">Local Body</a>
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown04">
+                            <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
+                            <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
+                        </div>
+
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'view_events' %}">View Events</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- END header -->
+
+<section class="site-section pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="owl-carousel owl-theme home-slider">
+                    <div>
+                        <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_2.jpg'); ">
+                            <div class="text half-to-full">
+                                <div class="post-meta">
+                                    <span class="category">Life</span>
+                                    <span class="mr-2">March 15, 2018 </span> &bullet;
+                                </div>
+                                <h3>Celebrate Life!</h3>
+                                <p>Come Donate Blood and be a part of the revolution!</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_13.jpg'); ">
+                            <div class="text half-to-full">
+                                <div class="post-meta">
+                                    <span class="category">Medical</span>
+                                    <span class="mr-2">December 15, 2018 </span> &bullet;
+                                </div>
+                                <h3>Tie-ups with Hospitals for Medical Awareness</h3>
+                                <p>Learn to be a hands-on Volunteer at Blood Donation Camps</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_14.JPEG'); ">
+                            <div class="text half-to-full">
+                                <div class="post-meta">
+                                    <span class="category">Camps</span>
+                                    <span class="mr-2">3rd November, 2018 </span> &bullet;
+                                </div>
+                                <h3>Reaching new heights</h3>
+                                <p>Conducting camps all across the country!</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
 
-              </li>
-
-
-
-                <li class="nav-item">
-                <a class="nav-link" href="{% url 'login' %}">Log in</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'view_events' %}">View Events</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-              </li>
-              {% endif %}
-            </ul>
-
-          </div>
-        </div>
-      </nav>
-    </header>
-    <!-- END header -->
-
-    <section class="site-section pt-5">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-
-            <div class="owl-carousel owl-theme home-slider">
-              <div>
-                <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_2.jpg'); ">
-                  <div class="text half-to-full">
-                    <div class="post-meta">
-                      <span class="category">Life</span>
-                      <span class="mr-2">March 15, 2018 </span> &bullet;
-                    </div>
-                    <h3>Celebrate Life!</h3>
-                    <p>Come Donate Blood and be a part of the revolution!</p>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_13.jpg'); ">
-                  <div class="text half-to-full">
-                    <div class="post-meta">
-                      <span class="category">Medical</span>
-                      <span class="mr-2">December 15, 2018 </span> &bullet;
-                    </div>
-                    <h3>Tie-ups with Hospitals for Medical Awareness</h3>
-                    <p>Learn to be a hands-on Volunteer at Blood Donation Camps</p>
-                  </div>
-                </a>
-              </div>
-              <div>
-                <a href="blog-single.html" class="a-block d-flex align-items-center height-lg" style="background-image: url('static/images/img_14.JPEG'); ">
-                  <div class="text half-to-full">
-                    <div class="post-meta">
-                      <span class="category">Camps</span>
-                      <span class="mr-2">3rd November, 2018 </span> &bullet;
-                    </div>
-                    <h3>Reaching new heights</h3>
-                    <p>Conducting camps all across the country!</p>
-                  </div>
-                </a>
-              </div>
             </div>
-
-          </div>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_2.jpg'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">Life</span>
-                      <span class="mr-2">March 15, 2018 </span> &bullet;
+            <div class="col-md-6 col-lg-4">
+                <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_2.jpg'); ">
+                    <div class="text">
+                        <div class="post-meta">
+                            <span class="category">Life</span>
+                            <span class="mr-2">March 15, 2018 </span> &bullet;
+                        </div>
+                        <h3>Celebrate Life!</h3>
                     </div>
-                    <h3>Celebrate Life!</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_13.jpg'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">Medical</span>
-                      <span class="mr-2">December 15, 2018 </span> &bullet;
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_13.jpg'); ">
+                    <div class="text">
+                        <div class="post-meta">
+                            <span class="category">Medical</span>
+                            <span class="mr-2">December 15, 2018 </span> &bullet;
+                        </div>
+                        <h3>Tie-ups with Hospitals for Medical Awareness</h3>
                     </div>
-                    <h3>Tie-ups with Hospitals for Medical Awareness</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_14.JPEG'); ">
-              <div class="text">
-                <div class="post-meta">
-                  <span class="category">Camps</span>
-                      <span class="mr-2">3rd November, 2018 </span> &bullet;
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_14.JPEG'); ">
+                    <div class="text">
+                        <div class="post-meta">
+                            <span class="category">Camps</span>
+                            <span class="mr-2">3rd November, 2018 </span> &bullet;
+                        </div>
+                        <h3>Reaching new heights</h3>
                     </div>
-                    <h3>Reaching new heights</h3>
-              </div>
-            </a>
-          </div>
+                </a>
+            </div>
         </div>
-      </div>
+    </div>
 
 
 
@@ -206,5 +202,4 @@
 
 
     <script src="{% static 'js/main.js' %}"></script>
-  </body>
-</html>
+</section>

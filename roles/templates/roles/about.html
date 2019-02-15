@@ -1,7 +1,8 @@
+{% load static %}
 {% load staticfiles %}
 <html lang="en">
   <head>
-    <title>Boond</title>
+    <title>Madat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -46,7 +47,7 @@
         <div class="row pt-5">
           <div class="col-12 text-center">
             <a class="absolute-toggle d-block d-md-none" data-toggle="collapse" href="#navbarMenu" role="button" aria-expanded="false" aria-controls="navbarMenu"><span class="burger-lines"></span></a>
-            <h1 class="site-logo"><a href="index.html">Boond</a></h1>
+            <h1 class="site-logo"><a href="index.html">Madat</a></h1>
           </div>
         </div>
       </div>
@@ -63,11 +64,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                  <a class="dropdown-item" href="{% url 'donor_signup' %}">Donor</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Recipient</a>
-                  <a class="dropdown-item" href="{% url 'blood_bank_signup' %}">Blood Bank</a>
-                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">Hospital</a>
-                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">Local Body</a>
+                  <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
+                  <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
                 </div>
 
               </li>
@@ -105,7 +103,7 @@
             
             <div class="row">
               <div class="col-md-12">
-                <h2  class="text-center">Boond : Donate Blood Today!</h2>
+                <h2  class="text-center">Madat - Help comes to you!</h2>
                 <p class="text-center"><img src="{% static 'images/img_13.jpg' %}" alt="Image placeholder" class="img-fluid"></p>
                 <p>Boond is being developed with the idea of efficiently integrating all the components involved under the operation of Blood Donation. It aims to bring together various stakeholders, such as potential blood donors, patients wishing to receive blood, blood banks and their inventories, hospitals and government officials overseeing the entire process.
 Our platform will facilitate multiple user login and profile maintenance for these stakeholders.<br> A real time dynamic inventory of various blood groups will be accessible to everyone logged onto the system. Blood banks will be required to update their inventory periodically which will be reflected to the users.

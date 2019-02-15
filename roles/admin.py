@@ -1,14 +1,8 @@
 from django.contrib import admin
-
-from .models import BloodDonationEvent,User,Donor,Recipient,Hospital,BloodBank,LocalBodies, Request, Blood
+from .models import BloodDonationEvent,User,Recipient,LocalBodies
 
 # Register your models here.
 admin.site.register(User)
-admin.site.register(Donor)
 admin.site.register(Recipient)
-admin.site.register(Hospital)
-admin.site.register(BloodBank)
 admin.site.register(LocalBodies)
-admin.site.register(Request)
-admin.site.register(Blood)
 admin.site.register(BloodDonationEvent)
