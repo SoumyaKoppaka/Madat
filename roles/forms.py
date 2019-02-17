@@ -57,6 +57,7 @@ class EventForm(forms.ModelForm):
     name = forms.CharField(required=True)
     organizer = forms.CharField(required=True)
     contact = forms.CharField(required=True)
+    category = forms.ChoiceField(choices=BloodDonationEvent.Category, required=True)
     description = forms.CharField(required=True)
     el_age = forms.CharField(required=False)
     el_designation = forms.ChoiceField(choices=BloodDonationEvent.Designation, required=True)
@@ -68,4 +69,4 @@ class EventForm(forms.ModelForm):
 
     class Meta:
         model = BloodDonationEvent
-        fields = ['name', 'organizer','contact','description','el_age','el_designation','el_education','el_income','el_gender','link','poster']
+        fields = ['name', 'organizer','contact','category','description','el_age','el_designation','el_education','el_income','el_gender','link','poster']
