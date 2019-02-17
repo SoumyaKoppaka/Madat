@@ -5,7 +5,7 @@ from django.utils.decorators import method_decorator
 from django.views import generic
 
 from roles.templates.roles.filters import UserFilter
-from ..decorators import local_body_required
+from ..decorators import local_body_required, recipient_required
 from ..forms import LocalBodySignUpForm, EventForm
 from ..models import User, BloodDonationEvent, Recipient
 
@@ -32,47 +32,44 @@ class LocalBodyHomeView(generic.TemplateView):
     template_name = 'roles/local_bodies/local_bodies_home.html'
     model = BloodDonationEvent
 
+
 def view_event(request):
     user_list = BloodDonationEvent.objects.all()
     filter = UserFilter(request.GET, queryset=user_list)
     return render(request, 'roles/local_bodies/all_event.html', {'filter': filter})
 
-#def view_event(request):
- #   all_products = BloodDonationEvent.objects.all()
-    #filter = UserFilter(request.GET, queryset=BloodDonationEvent.objects.all())
-  #  return render(request, 'roles/local_bodies/all_event.html', {'all_products': all_products})
-    #return render(request, 'roles/local_bodies/all_event.html', {'filter': filter})
-    #def get_context_data(self, **kwargs):
-     #   context = super().get_context_data(**kwargs)
-      #  context['filter']=UserFilter(self.request.GET, queryset=self.get_queryset())
-       # return context
+
+# def view_event(request):
+#   all_products = BloodDonationEvent.objects.all()
+# filter = UserFilter(request.GET, queryset=BloodDonationEvent.objects.all())
+#  return render(request, 'roles/local_bodies/all_event.html', {'all_products': all_products})
+# return render(request, 'roles/local_bodies/all_event.html', {'filter': filter})
+# def get_context_data(self, **kwargs):
+#   context = super().get_context_data(**kwargs)
+#  context['filter']=UserFilter(self.request.GET, queryset=self.get_queryset())
+# return context
 def view_scheme(request, name):
     product = BloodDonationEvent.objects.get(name=name)
     return render(request, 'roles/local_bodies/scheme.html', {'product': product})
 
+
+@login_required
+@recipient_required
 def if_eligible(request, name):
-    #name=request.POST.get('name')
-    #product = BloodDonationEvent.objects.get(name=name)
-    #return render(request, 'roles/local_bodies/eligible_yes.html', {'product': product})
-    #recipient = Recipient.objects.get(request.user.recipient)#(user=request.user.recipient)
-    user = User.objects.get(name=request.user.username)#(user=request.user.recipient)
-    #recipient = request.POST.get(request.user)
+    user = User.objects.get(pk=request.user.id)
     product = BloodDonationEvent.objects.get(name=name)
-    if user.recipient.designation== product.el_designation:
-       if user.recipient.gender == product.el_gender:
-           if user.recipient.age <= product.el_age:
-               if user.recipient.income == product.el_income:
-                   if user.recipient.education == product.el_education:
-                       return render(request, 'roles/local_bodies/eligible_yes.html', {'product': product})
-    else:
-        return render(request, 'roles/local_bodies/eligible_no.html', {'product': product})
+    if user.recipient.designation == product.el_designation:
+        if user.recipient.gender == product.el_gender:
+            if user.recipient.age <= product.el_age:
+                if user.recipient.income == product.el_income:
+                    if user.recipient.education == product.el_education:
+                        return render(request, 'roles/local_bodies/eligible_yes.html', {'product': product})
+    return render(request, 'roles/local_bodies/eligible_no.html', {'product': product})
+
 
 @login_required
 @local_body_required
 def upload_event(request):
-    # if not request.user.is_authenticated:
-    # return render(request, 'registration/signup_form.html')
-    # else:
     form = EventForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         event = form.save(commit=False)
