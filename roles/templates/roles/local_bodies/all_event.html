@@ -1,23 +1,17 @@
 {% load static %}
 {% load staticfiles %}
 {% block content %}
-
 <head>
     <title>Madat</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700" rel="stylesheet">
-
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-
     <link rel="stylesheet" href="{% static 'fonts/ionicons/css/ionicons.min.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/fontawesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
-
-    <!-- Theme Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
 <header role="banner">
@@ -42,7 +36,6 @@
           </div>
         </div>
       </div>
-
       <div class="container logo-wrap">
         <div class="row pt-5">
           <div class="col-12 text-center">
@@ -51,11 +44,8 @@
           </div>
         </div>
       </div>
-
       <nav class="navbar navbar-expand-md  navbar-light bg-light">
         <div class="container">
-
-
           <div class="collapse navbar-collapse" id="navbarMenu">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
@@ -67,19 +57,13 @@
                   <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
                   <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
                 </div>
-
               </li>
-
-
-
                 <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">Log in</a>
               </li>
-
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'view_events' %}">View Schemes</a>
               </li>
-
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
@@ -87,22 +71,22 @@
                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
               </li>
             </ul>
-
           </div>
         </div>
       </nav>
     </header>
 <body>
 <div class="row">
-
-{% if all_products %}
-        {% for product in all_products %}
-
+<form method="get">
+    {{ filter.form.as_p}}
+    <button type="submit">Filter</button>
+</form>
+        {% for product in filter.qs %}
 <div class="col-md-6 col-lg-4">
             <a href="blog-single.html" class="a-block d-flex align-items-center height-md" style="background-image: url('static/images/img_14.JPEG'); ">
               <div class="text">
                 <div class="post-meta">
-                  <span class="category">Location: {{ product.location }}</span>
+                  <span class="category">Location: {{ product.category }}</span>
                   <span class="mr-2">{{ product.date }} </span> &bullet;
                 </div>
                 <h3>{{ product.name }}</h3>
@@ -111,14 +95,8 @@
             </a>
           </div>
             {% endfor %}
-{% endif %}
-
-
-
-
-
+</div>
 <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
-
     <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
@@ -126,8 +104,6 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
-
-
     <script src="{% static 'js/main.js' %}"></script>
-</div>></body>
+</body>
 {% endblock %}
