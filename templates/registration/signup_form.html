@@ -62,8 +62,8 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="category.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-Up</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown04">
-                   <a class="btn btn-success" href="{% url 'recipient_signup' %}">User</a>
-                    <a class="btn btn-danger" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
+                   <a class="dropdown-item" href="{% url 'recipient_signup' %}">User</a>
+                    <a class="dropdown-item" href="{% url 'local_bodies_signup' %}">GOVT./NGO</a>
                 </div>
 
               </li>
@@ -112,7 +112,7 @@
               <br>
           {% endfor %}
       <br>
-        <button type="submit" class="btn btn-success">Sign up</button>
+          <a href="" ><button type="submit" class="btn btn-success">Sign up</button></a>
       </form>
         </div>
     </div>
