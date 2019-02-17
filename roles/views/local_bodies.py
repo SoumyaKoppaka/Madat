@@ -7,7 +7,7 @@ from django.views import generic
 from roles.templates.roles.filters import UserFilter
 from ..decorators import local_body_required
 from ..forms import LocalBodySignUpForm, EventForm
-from ..models import User, BloodDonationEvent
+from ..models import User, BloodDonationEvent, Recipient
 
 IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
@@ -46,11 +46,26 @@ def view_event(request):
      #   context = super().get_context_data(**kwargs)
       #  context['filter']=UserFilter(self.request.GET, queryset=self.get_queryset())
        # return context
-
 def view_scheme(request, name):
     product = BloodDonationEvent.objects.get(name=name)
     return render(request, 'roles/local_bodies/scheme.html', {'product': product})
 
+def if_eligible(request, name):
+    #name=request.POST.get('name')
+    #product = BloodDonationEvent.objects.get(name=name)
+    #return render(request, 'roles/local_bodies/eligible_yes.html', {'product': product})
+    #recipient = Recipient.objects.get(request.user.recipient)#(user=request.user.recipient)
+    user = User.objects.get(name=request.user.username)#(user=request.user.recipient)
+    #recipient = request.POST.get(request.user)
+    product = BloodDonationEvent.objects.get(name=name)
+    if user.recipient.designation== product.el_designation:
+       if user.recipient.gender == product.el_gender:
+           if user.recipient.age <= product.el_age:
+               if user.recipient.income == product.el_income:
+                   if user.recipient.education == product.el_education:
+                       return render(request, 'roles/local_bodies/eligible_yes.html', {'product': product})
+    else:
+        return render(request, 'roles/local_bodies/eligible_no.html', {'product': product})
 
 @login_required
 @local_body_required

@@ -16,4 +16,5 @@ urlpatterns = [
     path('about/', all_roles.about, name='about'),
     path('contact/', all_roles.contact, name='contact'),
     path('scheme/<name>/$',local_bodies.view_scheme, name='scheme_details'),
+    path('eligibility/<name>/$', local_bodies.if_eligible, name='eligibility'),
 ]

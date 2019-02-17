@@ -8,11 +8,11 @@ class User(AbstractUser):
         (5, 'LocalBody'),
         (6, 'Admin'),
     )
-
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=6)
     name = models.CharField(max_length=50, default='')
 
 class Recipient(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     first_name = models.CharField(max_length=40, default='')
     last_name = models.CharField(max_length=40, default='')
     age = models.CharField(max_length=2, default='')
@@ -45,7 +45,7 @@ class Recipient(models.Model):
         (GENDER_OTHER, 'Other'),
     )
     gender = models.CharField(max_length=1, choices=GENDERS, default='Other')
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+
 
     def __str__(self):
         return self.user.username

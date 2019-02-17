@@ -112,9 +112,8 @@
                 </div>
                  <p>{{ product.description }}</p>
                  <p>{{ product.link }}</p>
-                    {% if user.is_authenticated %}
-                    <button type="submit"><a href="{% url "eligibility" product.name %}">Check Eligibility</a></button>
-                    {% endif %}
+                    <p> YOU ARE ELIGIBLE FOR THIS SCHEME...</p>
+                        <button type="submit"><a href="{{  product.link }}" >Apply Now...</a></button>
                 </div>
               </div>
             </div>
