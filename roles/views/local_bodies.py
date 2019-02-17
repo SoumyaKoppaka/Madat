@@ -47,22 +47,28 @@ def view_event(request):
       #  context['filter']=UserFilter(self.request.GET, queryset=self.get_queryset())
        # return context
 
+def view_scheme(request, name):
+    product = BloodDonationEvent.objects.get(name=name)
+    return render(request, 'roles/local_bodies/scheme.html', {'product': product})
+
+
 @login_required
 @local_body_required
 def upload_event(request):
-    #if not request.user.is_authenticated:
-        #return render(request, 'registration/signup_form.html')
-    #else:
-        form = EventForm(request.POST or None, request.FILES or None)
-        if form.is_valid():
-            event = form.save(commit=False)
-            event.user = request.user
-            event.save()
-            return render(request, 'roles/local_bodies/local_bodies_home.html', {'event': event})
-        context = {
-            "form": form,
-        }
-        return render(request, 'roles/local_bodies/upload_event.html', context)
+    # if not request.user.is_authenticated:
+    # return render(request, 'registration/signup_form.html')
+    # else:
+    form = EventForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        event = form.save(commit=False)
+        event.user = request.user
+        event.save()
+        return render(request, 'roles/local_bodies/local_bodies_home.html', {'event': event})
+    context = {
+        "form": form,
+    }
+    return render(request, 'roles/local_bodies/upload_event.html', context)
+
 
 '''
             event.poster = request.FILES['poster']
@@ -76,4 +82,4 @@ def upload_event(request):
                 }
                 return render(request, 'roles/local_bodies/upload_event.html', context)
                 '''
-            #return render(request, 'roles/local_bodies/local_bodies_home.html', {'event': event})
+# return render(request, 'roles/local_bodies/local_bodies_home.html', {'event': event})

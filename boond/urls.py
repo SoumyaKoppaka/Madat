@@ -15,4 +15,5 @@ urlpatterns = [
     path('viewEvents/', local_bodies.view_event, name='view_events'),
     path('about/', all_roles.about, name='about'),
     path('contact/', all_roles.contact, name='contact'),
+    path('scheme/<name>/$',local_bodies.view_scheme, name='scheme_details'),
 ]
